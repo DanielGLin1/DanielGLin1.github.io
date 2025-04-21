@@ -1,1 +1,90 @@
-<h1>欢迎</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自动考试题生成器</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .upload-container {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="file"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .checkbox {
+            display: flex;
+            align-items: center;
+        }
+        .checkbox input {
+            margin-right: 10px;
+        }
+        button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #2980b9;
+        }
+        .note {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>自动考试题生成器</h1>
+    
+    <div class="upload-container">
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file">上传教材文件 (PDF或Word):</label>
+                <input type="file" id="file" name="file" accept=".pdf,.docx" required>
+            </div>
+            
+            <div class="form-group checkbox">
+                <input type="checkbox" id="use_ai" name="use_ai" checked>
+                <label for="use_ai">使用AI生成高级问题 (需要API密钥)</label>
+            </div>
+            
+            <button type="submit">生成考试题</button>
+        </form>
+        
+        <div class="note">
+            <p>系统将从您上传的教材中提取关键内容并自动生成考试题目。</p>
+            <p>支持的文件格式: PDF, DOCX</p>
+        </div>
+    </div>
+</body>
+</html>
